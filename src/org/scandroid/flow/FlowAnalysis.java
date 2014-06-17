@@ -203,7 +203,7 @@ public class FlowAnalysis {
 
         };
         TabulationSolver<BasicBlockInContext<E>, CGNode, DomainElement> solver =
-            TabulationSolver.make(problem, progressMonitor);
+            TabulationSolver.make(problem);
 
         try {
         	TabulationResult<BasicBlockInContext<E>,CGNode, DomainElement> flowResult = solver.solve();

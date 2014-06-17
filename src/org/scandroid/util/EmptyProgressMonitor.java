@@ -44,4 +44,10 @@ public final class EmptyProgressMonitor implements IProgressMonitor {
     public boolean isCanceled() { return false; }
     public void done() { }
     public void worked(int units) { }
+    
+    @Override
+    public String getCancelMessage() {
+	assert false;
+	return "never cancels";
+    }
 }

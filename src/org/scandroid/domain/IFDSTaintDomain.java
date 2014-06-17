@@ -131,4 +131,12 @@ public class IFDSTaintDomain <E extends ISSABasicBlock>
     public Set<CodeElement> codeElements () {
     	return elementIndex.keySet();
     }
+
+    @Override
+    public synchronized int getMappedIndex(Object o) {
+	if (o instanceof DomainElement) {
+	    return getMappedIndex((DomainElement) o);
+	}
+	return -1;
+    }
 }

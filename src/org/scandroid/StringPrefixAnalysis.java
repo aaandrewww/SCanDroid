@@ -158,14 +158,14 @@ public class StringPrefixAnalysis {
 
 
         System.out.println("PK: " + pkNewInMain);
-        OrdinalSet<InstanceKey> keys = pa.getPointsToSet(pkNewInMain);
-        for (Iterator<InstanceKey> i = keys.iterator(); i.hasNext();) {
+        OrdinalSet<? extends InstanceKey> keys = pa.getPointsToSet(pkNewInMain);
+        for (Iterator<? extends InstanceKey> i = keys.iterator(); i.hasNext();) {
             System.out.println("\t\t" + i.next());
         }
 
         System.out.println("PK: " + pkBar);
         keys = pa.getPointsToSet(pkBar);
-        for (Iterator<InstanceKey> i = keys.iterator(); i.hasNext();) {
+        for (Iterator<? extends InstanceKey> i = keys.iterator(); i.hasNext();) {
             System.out.println("\t\t" + i.next());
         }
         play(cg, pa, cache);

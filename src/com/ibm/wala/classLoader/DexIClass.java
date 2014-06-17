@@ -83,6 +83,11 @@ public class DexIClass extends BytecodeClass<IClassLoader> {
     //private int construcorId = -1;
 
     private int clinitId = -1;
+    
+    /**
+     * Containing module
+     */
+    private final Module container;
 
 //    public IClassLoader loader;
 
@@ -128,6 +133,8 @@ public class DexIClass extends BytecodeClass<IClassLoader> {
             interfaceNames[i] = ImmutableByteArray
                     .make(descriptor);
         }
+        
+        this.container = dexEntry.getContainer();
 
         //Load class data
         final ClassDataItem classData = classDef.getClassData();
@@ -340,9 +347,14 @@ public class DexIClass extends BytecodeClass<IClassLoader> {
         return clinitId!=-1?methods[clinitId]:null;
     }
 
-	@Override
-	public Collection<Annotation> getAnnotations() {
-		// TODO Auto-generated method stub
-		return Collections.emptySet();
-	}
+    @Override
+    public Collection<Annotation> getAnnotations() {
+	// Annotations not supported
+	return Collections.emptySet();
+    }
+
+    @Override
+    public Module getContainer() {
+	return container;
+    }
 }

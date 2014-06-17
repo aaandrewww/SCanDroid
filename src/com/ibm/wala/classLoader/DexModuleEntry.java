@@ -50,9 +50,11 @@ public class DexModuleEntry implements ModuleEntry {
 
     private final ClassDefItem classDefItem;
     private final String className;
+    private final DexFileModule container;
 
-    public DexModuleEntry(ClassDefItem cdefitems) {
+    public DexModuleEntry(ClassDefItem cdefitems, DexFileModule container) {
         classDefItem = cdefitems;
+        this.container = container;
         String temp =cdefitems.getClassType().getTypeDescriptor();
 //      className = temp;
         if (temp.endsWith(";"))
@@ -120,6 +122,11 @@ public class DexModuleEntry implements ModuleEntry {
      */
     public boolean isSourceFile() {
         return false;
+    }
+
+    @Override
+    public Module getContainer() {
+	return container;
     }
 
 }

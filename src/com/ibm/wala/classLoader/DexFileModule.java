@@ -83,7 +83,7 @@ public class DexFileModule implements Module {
 
         for (ClassDefItem cdefitems : cldeff.getItems()) {
             logger.debug("DexFileModule adding class: " + cdefitems.getConciseIdentity());
-            entries.add(new DexModuleEntry(cdefitems));
+            entries.add(new DexModuleEntry(cdefitems, this));
         }
     }
 

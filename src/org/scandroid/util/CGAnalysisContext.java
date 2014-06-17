@@ -346,7 +346,7 @@ public class CGAnalysisContext<E extends ISSABasicBlock> {
 					// don't do anything for primitive contents
 					continue;
 				}
-				OrdinalSet<InstanceKey> pointsToSet = pa.getPointsToSet(pa
+				OrdinalSet<? extends InstanceKey> pointsToSet = pa.getPointsToSet(pa
 						.getHeapModel().getPointerKeyForArrayContents(ik));
 				if (pointsToSet.isEmpty()) {
 					logger.debug("pointsToSet empty for array contents, creating InstanceKey manually");
@@ -398,7 +398,7 @@ public class CGAnalysisContext<E extends ISSABasicBlock> {
 				} else if (fieldTypeRef.isArrayType()) {
 					PointerKey pk = pa.getHeapModel()
 							.getPointerKeyForInstanceField(ik, field);
-					final OrdinalSet<InstanceKey> pointsToSet = pa
+					final OrdinalSet<? extends InstanceKey> pointsToSet = pa
 							.getPointsToSet(pk);
 					if (pointsToSet.isEmpty()) {
 						logger.debug("pointsToSet empty for array field, creating InstanceKey manually");
@@ -423,7 +423,7 @@ public class CGAnalysisContext<E extends ISSABasicBlock> {
 				} else if (fieldTypeRef.isReferenceType()) {
 					PointerKey pk = pa.getHeapModel()
 							.getPointerKeyForInstanceField(ik, field);
-					final OrdinalSet<InstanceKey> pointsToSet = pa
+					final OrdinalSet<? extends InstanceKey> pointsToSet = pa
 							.getPointsToSet(pk);
 					if (pointsToSet.isEmpty()
 							&& !analysisContext.getClassHierarchy()

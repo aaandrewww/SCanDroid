@@ -188,7 +188,7 @@ public class AppModelMethod {
         			CallSiteReference.make(methodSummary.getStatements().length, 
         					mp.getIMethod().getReference(), 
         					dispatch));        	
-        	methodSummary.addStatement(insts.GotoInstruction(loopLabel));
+        	methodSummary.addStatement(insts.GotoInstruction());
         }		
 	}
 	

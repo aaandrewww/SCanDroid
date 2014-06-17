@@ -67,4 +67,9 @@ public class TimedMonitor implements IProgressMonitor {
 	public void worked(int units) {
 	}
 
+	@Override
+	public String getCancelMessage() {
+	    return "timed out";
+	}
+
 }

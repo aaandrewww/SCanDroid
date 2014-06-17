@@ -175,7 +175,7 @@ public class StringBuilderUseAnalysis {
 			else
 			{
 				// if this pointer key points to our instance key then we have to give up -- we can only analyze local pointer keys
-				if(pa.getPointsToSet(pk).contains(ik))
+				if(pa.getPointsToSet(pk).getMapping().getMappedIndex(ik) >= 0)
 				{
 					logger.warn("Found non LocalPointerKey refering to our ik: "+pk);
 					return null;
